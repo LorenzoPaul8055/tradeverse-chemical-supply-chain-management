@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Dashboard - TradeVerse Chemical{% endblock %}
+
+{% block content %}
+<h2>Admin Dashboard</h2>
+<div class="list-group">
+    <a href="{{ url_for('add_product') }}" class="list-group-item list-group-item-action">Add New Product</a>
+    <a href="{{ url_for('view_inventory') }}" class="list-group-item list-group-item-action">View Inventory</a>
+    <a href="{{ url_for('view_orders') }}" class="list-group-item list-group-item-action">View Orders</a>
+    <a href="{{ url_for('transaction_history') }}" class="list-group-item list-group-item-action">View Transaction History</a>
+</div>
+{% endblock %}

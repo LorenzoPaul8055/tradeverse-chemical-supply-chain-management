@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}View Orders - TradeVerse Chemical{% endblock %}
+
+{% block content %}
+<h2>Orders</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.product_name }}</td>
+            <td>{{ order.quantity }}</td>
+            <td>{{ order.price }}</td>
+            <td>{{ order.status }}</td>
+            <td>
+                <a href="{{ url_for('view_order_details', order_id=order.id) }}" class="btn btn-info">View Details</a>
+                <a href="{{ url_for('update_order_status', order_id=order.id) }}" class="btn btn-warning">Update Status</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
